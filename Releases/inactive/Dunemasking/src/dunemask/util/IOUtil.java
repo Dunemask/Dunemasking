@@ -15,7 +15,7 @@ import java.util.Random;
  * Simple File Utilities 
  *
  */
-public class FileUtil {
+public class IOUtil {
 	
 	/** Write A URL to a file in a specified location
 	 * 
@@ -55,7 +55,7 @@ public class FileUtil {
 		File file = null;
 		try {
 			file = File.createTempFile("DMRAN"+new Random().nextInt(), ".dcu");
-			FileUtil.writeURL(file, url);
+			IOUtil.writeURL(file, url);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
