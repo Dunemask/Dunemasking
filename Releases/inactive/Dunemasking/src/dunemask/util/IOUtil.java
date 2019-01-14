@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
 
@@ -62,7 +63,19 @@ public class IOUtil {
 		return file;
 		
 	}
-		
+	/** Convert File to URL
+	 * @param file
+	 * @return url
+	 * 
+	 * */
+	public static URL FTU(File file) {
+		try {
+			return file.toURI().toURL();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 	
 }
