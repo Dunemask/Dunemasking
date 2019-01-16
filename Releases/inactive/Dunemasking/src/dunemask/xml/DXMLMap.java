@@ -4,19 +4,16 @@ import java.io.File;
 import java.util.ArrayList;
 
 import dunemask.util.IOUtil;
-import dunemask.util.RW;
 import dunemask.util.StringUtil;
 
 class DXMLMap {
 	private static ArrayList<String> newLines = new ArrayList<String>();
-	
-	
 	public void writeOut(File f) {
 		this.update();
 		f.delete();
 		//System.out.println(f.getAbsolutePath()+"HERE");
 		//System.out.println("^^");
-		RW.writeAll(f, newLines);
+		IOUtil.writeAll(f, newLines);
 		//System.out.println("^^");
 	}
 	public void writeOut() {
@@ -65,6 +62,7 @@ class DXMLMap {
 	}
 	
 	public String getVal(String url) {
+		System.out.println(getAttr(url));
 		return getAttr(url).getValue();
 		
 	}
@@ -78,10 +76,6 @@ class DXMLMap {
 	public boolean itemExists(String url) {
 		//System.out.println(this.getAttr(url)+"@From "+url);
 		return this.getAttr(url)!=null;
-
-		
-		
-		
 	}
 	
 	
@@ -426,7 +420,7 @@ class DXMLMap {
 	public static DXMLMap ParseMap(File file) {
 		DXMLMap m = new DXMLMap();
 		m.file = file;
-		m.lines = RW.readAll(IOUtil.FTU(file));
+		m.lines = IOUtil.readAll(IOUtil.FTU(file));
 		m.parse();	
 		return m;
 		
@@ -598,7 +592,7 @@ class DXMLMap {
 						String elmForm = this.parseElement(curLine);
 						////System.out.println("ELM@I:"+curLine);
 						////System.out.println("Wants to Map:"+elm+elmForm);
-						////System.out.println("Will Find Lines"+Arrays.asList(RW.read(file, i,closeLoc)));
+						////System.out.println("Will Find Lines"+Arrays.asList(IOUtil.read(file, i,closeLoc)));
 						Attr child = (this.map(elm+elmForm,i+1,closeLoc));
 						cont.addChild(child);
 					}	
