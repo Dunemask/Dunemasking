@@ -50,6 +50,7 @@ class Attr {
 	public ArrayList<Attr> getChildren() {
 		return children;
 	}
+	
 	public Attr getChild(String url){
 		Attr at = null;
 		if(this.isContainer()) {	

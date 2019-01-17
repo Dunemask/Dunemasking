@@ -164,7 +164,7 @@ public class Runemap {
 	 * @return 
 	 * 
 	 * */
-	public void writeForcedContainer(String url) {;
+	public void writeForcedContainer(String url) {
 		String path = url;
 		ArrayList<String> toMake = new ArrayList<String>();
 		while(path!=null) {
@@ -182,6 +182,7 @@ public class Runemap {
 				this.writeContainer(tmprl);
 			}
 		}
+		this.writeContainer(url);
 		
 		
 	}
