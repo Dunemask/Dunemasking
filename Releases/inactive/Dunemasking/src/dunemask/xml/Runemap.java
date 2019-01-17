@@ -111,7 +111,7 @@ public class Runemap {
 	 * */
 	public Runemap(File runemap) {
 		this.xml= runemap;
-		runemap.delete();
+		
 		map = new DXMLMap();
 		map.file = this.xml;
 		this.xmlurl =(new ArrayList<String>());
@@ -251,7 +251,10 @@ public class Runemap {
 	public String getParentUrl(String url) {
 		return new Attr(url).getParent();
 	}
-	
+	/** Write the Runemap to a file
+	 * 
+	 * 
+	 * */
 	public void write() {
 		this.writeOut();
 	}
