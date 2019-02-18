@@ -6,8 +6,6 @@ package dunemask.xml;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
-
 import dunemask.util.StringUtil;
 /** This is an Interprited form of xml that should only be change/edited
  * from Dunemasking however is probably externally readable
@@ -297,11 +295,8 @@ public class Runemap {
 		System.out.println(keys);
 		for(int i=0;i<keys.size();i++) {
 			if(keys.get(i).startsWith(url)) {
-				System.out.println(keys.get(i));
-				String val = this.fullMap.remove(keys.get(i));
-				System.out.println(val);
-				System.out.println(this.fullMap.keySet());
-				new Scanner(System.in).nextLine();
+				this.fullMap.remove(keys.get(i)); //Remove From Map
+				keys.remove(keys.get(i)); //Remove From "keyset"
 				i=0;
 			}
 		}
